@@ -75,6 +75,122 @@ namespace EuroCombinations.Manage
         }
 
 
+        public void combinationsAnalyze3(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                var list = new List<string>();
+                var cont = AsociationType;
+
+                for (int i = combination.Count - 1; i >= 0; i--)
+                {
+                    var a = combination[i];
+
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        var b = combination[j];
+
+                        for (int k = j - 1; k >= 0; k--)
+                        {
+                            var c = combination[k];
+
+                            list.Add(a + "," + b + "," + c);
+                        }
+                    }
+                }
+
+                if (list.Count != Combinations)
+                {
+                    throw new Exception("No se ha podido extraer todas las posibles combinaciones");
+                }
+
+                extractValues(list);
+            }
+        }
+
+
+        public void combinationsAnalyze4(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                var list = new List<string>();
+                var cont = AsociationType;
+
+                for (int i = combination.Count - 1; i >= 0; i--)
+                {
+                    var a = combination[i];
+
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        var b = combination[j];
+
+                        for (int k = j - 1; k >= 0; k--)
+                        {
+                            var c = combination[k];
+
+                            for (int l = k-1; l >= 0; l--)
+                            {
+                                var d = combination[l];
+
+                                list.Add(a + "," + b + "," + c + "," + d);
+                            }
+                        }
+                    }
+                }
+
+                if (list.Count != Combinations)
+                {
+                    throw new Exception("No se ha podido extraer todas las posibles combinaciones");
+                }
+
+                extractValues(list);
+            }
+        }
+
+
+        public void combinationsAnalyze5(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                var list = new List<string>();
+                var cont = AsociationType;
+
+                for (int i = combination.Count - 1; i >= 0; i--)
+                {
+                    var a = combination[i];
+
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        var b = combination[j];
+
+                        for (int k = j - 1; k >= 0; k--)
+                        {
+                            var c = combination[k];
+
+                            for (int l = k - 1; l >= 0; l--)
+                            {
+                                var d = combination[l];
+
+                                for (int h = l - 1; h >= 0; h--)
+                                {
+                                    var e = combination[h];
+
+                                    list.Add(a + "," + b + "," + c + "," + d + "," + e);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (list.Count != Combinations)
+                {
+                    throw new Exception("No se ha podido extraer todas las posibles combinaciones");
+                }
+
+                extractValues(list);
+            }
+        }
+
         private void extractValues(List<string> list)
         {
             foreach (var comb in list)
