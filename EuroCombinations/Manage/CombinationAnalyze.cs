@@ -10,6 +10,16 @@ namespace EuroCombinations.Manage
     public class CombinationAnalyze
     {
         private  int AsociationType;
+
+        public int Range1 { get; private set; }
+        public int Range2 { get; private set; }
+        public int Range3 { get; private set; }
+        public int Range4 { get; private set; }
+        public int Range5 { get; private set; }
+
+        public int Pares { get; private set; }
+        public int Impares { get; private set; }
+
         private readonly int CombinationLength;
         public int Combinations { get; private set; }
         private int Limit;
@@ -35,8 +45,7 @@ namespace EuroCombinations.Manage
 
             Combinations = a / b;
         }
-
-
+        
 
         private int Factorial(int i)
         {
@@ -45,6 +54,58 @@ namespace EuroCombinations.Manage
             return i * Factorial(i - 1);
         }
 
+
+        public void parAnalyze(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    parCounter(number);
+                }
+            }
+        }
+
+        private void parCounter(string number)
+        {
+            int num;
+
+            if (int.TryParse(number, out num))
+            {
+                if (isPar(num)) Pares++;
+                else Impares++;
+            }
+        }
+
+        private bool isPar(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        public void rangeAnalyze(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    rangeCounter(number);
+                }
+            }
+        }
+
+        private void rangeCounter(string number)
+        {
+            int num;
+
+            if (int.TryParse(number,out num))
+            {
+                if (num >= 1 && num <= 10) Range1++;
+                if (num > 10 && num <= 20) Range2++;
+                if (num > 20 && num <= 30) Range3++;
+                if (num > 30 && num <= 40) Range4++;
+                if (num > 40) Range5++;
+            }
+        }
 
         public void combinationsAnalyze(List<List<string>> combinations)
         {

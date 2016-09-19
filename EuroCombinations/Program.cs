@@ -44,13 +44,14 @@ namespace EuroCombinations
                 var numbers = lines[i].Split(',');
                 var list = new List<string> {numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]};
                 combinations.Add(list);
-                
             }
 
-            var combAnalyze = new CombinationAnalyze(3,5);
-            combAnalyze.combinationsAnalyze3(combinations);
+            var combAnalyze = new CombinationAnalyze(4,5);
+            combAnalyze.combinationsAnalyze4(combinations);
+            combAnalyze.rangeAnalyze(combinations);
+            combAnalyze.parAnalyze(combinations);
 
-            var orderList = combAnalyze.combinationList.OrderByDescending(x => x.Repetitions).ToList();
+            var orderList = combAnalyze.combinationList.OrderByDescending(x => x.Repetitions).Where(x => x.Repetitions == 2).ToList();
 
             var total = combAnalyze.combinationList.Sum(x => x.Repetitions);
 
