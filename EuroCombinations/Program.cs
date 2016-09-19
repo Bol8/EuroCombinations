@@ -49,9 +49,9 @@ namespace EuroCombinations
             var combAnalyze = new CombinationAnalyze(4,5);
             combAnalyze.combinationsAnalyze4(combinations);
             combAnalyze.rangeAnalyze(combinations);
-            combAnalyze.parAnalyze(combinations);
+            combAnalyze.rangeAnalyze3(combinations);
 
-            var orderList = combAnalyze.combinationList.OrderByDescending(x => x.Repetitions).Where(x => x.Repetitions == 2).ToList();
+            var orderList = combAnalyze.combinationList.OrderByDescending(x => x.Repetitions).ToList();
 
             var total = combAnalyze.combinationList.Sum(x => x.Repetitions);
 

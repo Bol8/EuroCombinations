@@ -9,7 +9,7 @@ namespace EuroCombinations.Manage
 {
     public class CombinationAnalyze
     {
-        private  int AsociationType;
+        private int AsociationType;
 
         public int Range1 { get; private set; }
         public int Range2 { get; private set; }
@@ -31,7 +31,7 @@ namespace EuroCombinations.Manage
             combinationList = new List<Combination>();
             AsociationType = asociationType;
             CombinationLength = combinationLength;
-            
+
             initValues();
         }
 
@@ -45,7 +45,7 @@ namespace EuroCombinations.Manage
 
             Combinations = a / b;
         }
-        
+
 
         private int Factorial(int i)
         {
@@ -77,6 +77,12 @@ namespace EuroCombinations.Manage
             }
         }
 
+        private void parCounter(int number)
+        {
+            if (isPar(number)) Pares++;
+            else Impares++;
+        }
+
         private bool isPar(int number)
         {
             return number % 2 == 0;
@@ -93,11 +99,81 @@ namespace EuroCombinations.Manage
             }
         }
 
+        public void rangeAnalyze1(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    int num;
+
+                    if (!int.TryParse(number, out num)) continue;
+                    if (num >= 1 && num <= 10) parCounter(num);
+                }
+            }
+        }
+
+        public void rangeAnalyze2(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    int num;
+
+                    if (!int.TryParse(number, out num)) continue;
+                    if (num > 10 && num <= 20) parCounter(num);
+                }
+            }
+        }
+
+        public void rangeAnalyze3(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    int num;
+
+                    if (!int.TryParse(number, out num)) continue;
+                    if (num > 20 && num <= 30) parCounter(num);
+                }
+            }
+        }
+
+        public void rangeAnalyze4(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    int num;
+
+                    if (!int.TryParse(number, out num)) continue;
+                    if (num > 30 && num <= 40) parCounter(num);
+                }
+            }
+        }
+
+        public void rangeAnalyze5(List<List<string>> combinations)
+        {
+            foreach (var combination in combinations)
+            {
+                foreach (string number in combination)
+                {
+                    int num;
+
+                    if (!int.TryParse(number, out num)) continue;
+                    if (num > 40) parCounter(num);
+                }
+            }
+        }
+
         private void rangeCounter(string number)
         {
             int num;
 
-            if (int.TryParse(number,out num))
+            if (int.TryParse(number, out num))
             {
                 if (num >= 1 && num <= 10) Range1++;
                 if (num > 10 && num <= 20) Range2++;
@@ -117,18 +193,18 @@ namespace EuroCombinations.Manage
                 for (int i = combination.Count - 1; i >= 0; i--)
                 {
                     var a = combination[i];
-                  
+
                     for (int j = combination.Count - cont++; j >= 0; j--)
                     {
                         var b = combination[j];
 
-                        list.Add(a +","+ b);
+                        list.Add(a + "," + b);
                     }
                 }
 
                 if (list.Count != Combinations)
                 {
-                   throw new Exception("No se ha podido extraer todas las posibles combinaciones");
+                    throw new Exception("No se ha podido extraer todas las posibles combinaciones");
                 }
 
                 extractValues(list);
@@ -189,7 +265,7 @@ namespace EuroCombinations.Manage
                         {
                             var c = combination[k];
 
-                            for (int l = k-1; l >= 0; l--)
+                            for (int l = k - 1; l >= 0; l--)
                             {
                                 var d = combination[l];
 
@@ -263,17 +339,17 @@ namespace EuroCombinations.Manage
                 }
                 else
                 {
-                    var combination = new Combination() {Number = comb, Repetitions = 1};
+                    var combination = new Combination() { Number = comb, Repetitions = 1 };
                     combinationList.Add(combination);
                 }
             }
         }
-        
+
         private bool repetitionExists(string comb)
         {
             return combinationList.Exists(x => x.Number.Equals(comb));
-        } 
-       
+        }
+
 
 
     }
