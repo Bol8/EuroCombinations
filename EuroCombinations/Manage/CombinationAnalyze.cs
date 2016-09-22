@@ -24,6 +24,8 @@ namespace EuroCombinations.Manage
         public int Combinations { get; private set; }
         private int Limit;
 
+        public string Combination { get; private set; }
+
         public List<Combination> combinationList;
 
         public CombinationAnalyze(int asociationType, int combinationLength)
@@ -282,8 +284,18 @@ namespace EuroCombinations.Manage
 
                 extractValues(list);
             }
+
+            calculateCombination();
         }
 
+        private void calculateCombination()
+        {
+            do
+            {
+                Combination = generateCombination(4);
+
+            } while (combinationList.Exists(x => x.Number.Equals(Combination)));
+        }
 
         public void combinationsAnalyze5(List<List<string>> combinations)
         {
@@ -348,6 +360,25 @@ namespace EuroCombinations.Manage
         private bool repetitionExists(string comb)
         {
             return combinationList.Exists(x => x.Number.Equals(comb));
+        }
+
+
+        private string generateCombination(int length)
+        {
+            Random rnd = new Random();
+            List<string> numbers = new List<string>();
+
+            for (int i = 0; i < length; i++)
+            {
+                var num = rnd.Next(1, 51).ToString();
+                if (!numbers.Exists(x =>Equals(x, num)))
+                {
+                    numbers.Add(num);
+                }
+               
+            }
+
+            return String.Join(",", numbers);
         }
 
 
