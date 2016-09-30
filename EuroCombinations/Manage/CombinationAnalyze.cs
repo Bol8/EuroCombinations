@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EuroCombinations.POCO;
+using StringExtensions;
 
 namespace EuroCombinations.Manage
 {
@@ -20,19 +21,39 @@ namespace EuroCombinations.Manage
         public int Pares { get; private set; }
         public int Impares { get; private set; }
 
+        public int Tiradas { get; private set; }
+
         private readonly int CombinationLength;
         public int Combinations { get; private set; }
+        public int NumCombinationsInf { get; private set; }
+        public int NumbCombinationsInfPercent { get; private set; }
         private int Limit;
+
 
         public string Combination { get; private set; }
 
         public List<Combination> combinationList;
+        private List<Combination> WinCombinationList;
+
 
         public CombinationAnalyze(int asociationType, int combinationLength)
         {
             combinationList = new List<Combination>();
             AsociationType = asociationType;
             CombinationLength = combinationLength;
+
+            initValues();
+        }
+
+
+        public CombinationAnalyze(int asociationType, int combinationLength, List<List<string>> combinations)
+        {
+            combinationList = new List<Combination>();
+            WinCombinationList = new List<Combination>();
+
+            AsociationType = asociationType;
+            CombinationLength = combinationLength;
+            obtenerCombinacionGanadora(combinations);
 
             initValues();
         }
@@ -209,7 +230,7 @@ namespace EuroCombinations.Manage
                     throw new Exception("No se ha podido extraer todas las posibles combinaciones");
                 }
 
-                extractValues(list);
+                extraerValores(list);
             }
         }
 
@@ -243,7 +264,7 @@ namespace EuroCombinations.Manage
                     throw new Exception("No se ha podido extraer todas las posibles combinaciones");
                 }
 
-                extractValues(list);
+                extraerValores(list);
             }
         }
 
@@ -282,65 +303,71 @@ namespace EuroCombinations.Manage
                     throw new Exception("No se ha podido extraer todas las posibles combinaciones");
                 }
 
-                extractValues(list);
+                extraerValores(list);
             }
 
-            calculateCombination();
+            calcularCombinacion();
         }
 
-        private void calculateCombination()
+        private void calcularCombinacion()
         {
             do
             {
-                Combination = generateCombination(4);
+                Combination = generateCombination(5);
+                Tiradas++;
 
-            } while (combinationList.Exists(x => x.Number.Equals(Combination)));
+            } while (!combinationList.Exists(x => x.Number.Equals(Combination)));
         }
 
-        public void combinationsAnalyze5(List<List<string>> combinations)
+        public void obtenerCombinacionGanadora(List<List<string>> combinations)
         {
             foreach (var combination in combinations)
             {
                 var list = new List<string>();
                 var cont = AsociationType;
 
-                for (int i = combination.Count - 1; i >= 0; i--)
-                {
-                    var a = combination[i];
+                list.Add(string.Join(",", combination));
 
-                    for (int j = i - 1; j >= 0; j--)
-                    {
-                        var b = combination[j];
 
-                        for (int k = j - 1; k >= 0; k--)
-                        {
-                            var c = combination[k];
-
-                            for (int l = k - 1; l >= 0; l--)
-                            {
-                                var d = combination[l];
-
-                                for (int h = l - 1; h >= 0; h--)
-                                {
-                                    var e = combination[h];
-
-                                    list.Add(a + "," + b + "," + c + "," + d + "," + e);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (list.Count != Combinations)
-                {
-                    throw new Exception("No se ha podido extraer todas las posibles combinaciones");
-                }
-
-                extractValues(list);
+                extraerValores(list);
             }
+
+            calcularCombinacion();
         }
 
-        private void extractValues(List<string> list)
+        public void obtenerCombinacionQueEmpiezaEntreDosNumerps(List<List<string>> combinations, int numero1, int numero2)
+        {
+            foreach (var combination in combinations)
+            {
+                recontarCombinacionesQueEmpiezanEntreDosNumeros(int.Parse(combination[0]), numero1,numero2);
+            }
+
+            NumbCombinationsInfPercent = NumCombinationsInf * 100 / combinations.Count;
+        }
+
+        private void recontarCombinacionesQueEmpiezanEntreDosNumeros(int numero, int numero1,int numero2)
+        {
+            if (numero1 <= numero && numero2 >= numero) NumCombinationsInf++;
+        }
+
+
+        public void obtenerCombinacionQueEmpiezaPorUnNumeroInferior(List<List<string>> combinations, int numero)
+        {
+            foreach (var combination in combinations)
+            {
+                recontarCombinacionesQueEmpiezanPorUnNumeroInferior(int.Parse(combination[0]), numero);
+            }
+
+            NumbCombinationsInfPercent = NumCombinationsInf * 100 / combinations.Count;
+        }
+
+        private void recontarCombinacionesQueEmpiezanPorUnNumeroInferior(int numero, int numeroReferencia)
+        {
+            if (numero <= numeroReferencia) NumCombinationsInf++;
+        }
+
+
+        private void extraerValores(List<string> list)
         {
             foreach (var comb in list)
             {
@@ -363,25 +390,56 @@ namespace EuroCombinations.Manage
         }
 
 
+        private string finalizeCombination(string numbers)
+        {
+            bool isOk = false;
+            Random rnd = new Random();
+            var numClone = "";
+            var values = numbers.Split(',').ToList();
+
+            while (!isOk)
+            {
+                var num = rnd.Next(1, 51).ToString();
+                if (!values.Exists(x => Equals(x, num)))
+                {
+                    numClone = numbers + "," + num;
+                    isOk = true;
+                }
+            }
+
+            return numClone;
+        }
+
         private string generateCombination(int length)
         {
             Random rnd = new Random();
-            List<string> numbers = new List<string>();
+            List<int> numbers = new List<int>();
 
-            for (int i = 0; i < length; i++)
+            while (numbers.Count < length)
             {
-                var num = rnd.Next(1, 51).ToString();
-                if (!numbers.Exists(x =>Equals(x, num)))
+                var num = rnd.Next(1, 51);
+                if (!numbers.Exists(x => x == num))
                 {
                     numbers.Add(num);
                 }
-               
             }
 
-            return String.Join(",", numbers);
+            return formatearCombinacion(numbers.OrderBy(x => x).ToList());
         }
 
 
+        private string formatearCombinacion(List<int> combinacion)
+        {
+            List<string> strCombinacion = new List<string>();
+
+            foreach (var numero in combinacion)
+            {
+                strCombinacion.Add(numero < 10 ? numero.ToString().JoinUpStart("0") : numero.ToString());
+            }
+
+
+            return string.Join(",", strCombinacion);
+        }
 
     }
 }
