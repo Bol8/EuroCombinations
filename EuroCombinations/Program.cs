@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using EuroCombinations.Manage;
 using EuroCombinations.POCO;
+using FileDownloader = FileDownloader.Core.FileDownloader;
 
 namespace EuroCombinations
 {
     class Program
     {
         const string filePath = @"C:\Users\Oscar\Documents\Ficheros\Euromillones\Historico.csv";
+        const string pathLocalResource = @"C:\Users\Oscar\Documents\Ficheros\Euromillones\";
 
         static void Main(string[] args)
         {
@@ -46,6 +48,11 @@ namespace EuroCombinations
 
                 switch (option)
                 {
+                    case "0":
+                        actualizarFichero();
+                        break;
+
+
                     case "1":
                         verCombinacionesGanadoras();
                         break;
@@ -62,6 +69,15 @@ namespace EuroCombinations
                         obtenerNumeroCombinacionesQueEmpiezanEntreDosNumerosDados();
                         break;
 
+                    case "5":
+                        obtenerNumeroCombinacionesPorDistanciaDeNumeros();
+                        break;
+
+                    case "6":
+                        verSumaDeCombinacionesGanadoras();
+                        break;
+
+
                     case "8":
                         salir = true;
                         break;
@@ -77,10 +93,13 @@ namespace EuroCombinations
             Console.WriteLine("Bienvenido.");
             Console.WriteLine("Selecciona una de las siguientes opciones");
             Console.WriteLine("*****************************************************");
+            Console.WriteLine("0- Actualizar fichero.");
             Console.WriteLine("1- Ver las combinaciones ganadoras.");
             Console.WriteLine("2- Generar combinación que coincida con alguna ganadora.");
             Console.WriteLine("3- Obtener número combinaciones que empiezan por un número inferiror al indicado.");
-            Console.WriteLine("4- Obtener número de combinaciones que empiezan entre dos números dados .");
+            Console.WriteLine("4- Obtener número de combinaciones que empiezan entre dos números dados.");
+            Console.WriteLine("5- Obtener número de combinaciones donde la distancia entre números se inferior a la indicada.");
+            Console.WriteLine("6- Ver a suma de las combinaciones ganadoras.");
             Console.WriteLine("8- Salir");
 
             return Console.ReadLine();
@@ -89,7 +108,7 @@ namespace EuroCombinations
 
         private static void verCombinacionesGanadoras()
         {
-            var combinaciones = obtenerCombinaciones();
+            var combinaciones = obtenerCombinacionesDelFichero();
 
             foreach (var combinacion in combinaciones)
             {
@@ -100,12 +119,37 @@ namespace EuroCombinations
             Console.WriteLine("\n");
         }
 
+        private static void verSumaDeCombinacionesGanadoras()
+        {
+            var combinaciones = obtenerCombinacionesDelFichero();
+
+            foreach (var combinacion in combinaciones)
+            {
+                Console.WriteLine(sumaCombinacion(combinacion));
+            }
+
+            Console.WriteLine("Total: " + combinaciones.Count + " combinaciones");
+            Console.WriteLine("\n");
+        }
+
+        private static int sumaCombinacion(List<string> combinacion)
+        {
+            var result = 0;
+
+            foreach (var sNum in combinacion)
+            {
+                result += int.Parse(sNum);
+            }
+
+            return result;
+        }
+
         private static void generarCombinacionGanadora()
         {
             Console.WriteLine("Generando.......");
 
             var combAnalyze = new CombinationAnalyze(5, 5);
-            combAnalyze.obtenerCombinacionGanadora(obtenerCombinaciones());
+            combAnalyze.obtenerCombinacionGanadora(obtenerCombinacionesDelFichero());
 
             Console.WriteLine("Combinación: " + combAnalyze.Combination);
             Console.WriteLine("Tiradas: " + combAnalyze.Tiradas);
@@ -122,15 +166,15 @@ namespace EuroCombinations
                 numero = Console.ReadLine();
 
                 var numAux = 0;
-                isOk = int.TryParse(numero,out numAux);
+                isOk = int.TryParse(numero, out numAux);
 
-                if(!isOk) Console.WriteLine("Por favor, indique un número");
+                if (!isOk) Console.WriteLine("Por favor, indique un número");
 
             } while (!isOk);
 
             var combAnalyze = new CombinationAnalyze(5, 5);
             if (numero != null)
-                combAnalyze.obtenerCombinacionQueEmpiezaPorUnNumeroInferior(obtenerCombinaciones(), int.Parse(numero));
+                combAnalyze.obtenerCombinacionQueEmpiezaPorUnNumeroInferior(obtenerCombinacionesDelFichero(), int.Parse(numero));
 
             Console.WriteLine("Número de combinaciones: " + combAnalyze.NumCombinationsInf);
             Console.WriteLine("Porcentaje: " + combAnalyze.NumbCombinationsInfPercent + "%");
@@ -161,14 +205,54 @@ namespace EuroCombinations
 
             var combAnalyze = new CombinationAnalyze(5, 5);
             if (numero1 != null && numero2 != null)
-                    combAnalyze.obtenerCombinacionQueEmpiezaEntreDosNumerps(obtenerCombinaciones(), int.Parse(numero1), int.Parse(numero2));
+                combAnalyze.obtenerCombinacionQueEmpiezaEntreDosNumerps(obtenerCombinacionesDelFichero(), int.Parse(numero1), int.Parse(numero2));
 
             Console.WriteLine("Número de combinaciones: " + combAnalyze.NumCombinationsInf);
             Console.WriteLine("Porcentaje: " + combAnalyze.NumbCombinationsInfPercent + "%");
             Console.WriteLine("\n");
         }
 
-        private static List<List<string>> obtenerCombinaciones()
+
+        private static void obtenerNumeroCombinacionesPorDistanciaDeNumeros()
+        {
+            var isOk = true;
+            string numero1;
+            string numero2;
+
+            do
+            {
+                Console.WriteLine("Indique números a controlar");
+                numero1 = Console.ReadLine();
+
+                Console.WriteLine("Indique distancia");
+                numero2 = Console.ReadLine();
+
+                var numAux = 0;
+                isOk = int.TryParse(numero1, out numAux);
+                isOk = int.TryParse(numero2, out numAux);
+
+                if (!isOk) Console.WriteLine("Por favor, indique bien los números");
+
+            } while (!isOk);
+
+            var combAnalyze = new CombinationAnalyze(5, 5);
+            if (numero1 != null && numero2 != null)
+                combAnalyze.obtenerCombinacionPorDistanciaDeNumeros(obtenerCombinacionesDelFichero(), int.Parse(numero1), int.Parse(numero2));
+
+          
+            Console.WriteLine("Combinaciones:");
+            foreach (var comb in combAnalyze.CombinacionesCoincidentes)
+            {
+                Console.WriteLine(string.Join(",", comb));
+            }
+
+            Console.WriteLine("Número de combinaciones: " + combAnalyze.NumCombinationsInf);
+            Console.WriteLine("Porcentaje: " + combAnalyze.NumbCombinationsInfPercent + "%");
+            Console.WriteLine("\n");
+        }
+
+
+        private static List<List<string>> obtenerCombinacionesDelFichero()
         {
             var combinations = new List<List<string>>();
 
@@ -184,7 +268,15 @@ namespace EuroCombinations
             return combinations;
         }
 
+        private static void actualizarFichero()
+        {
+            var remoteUri =
+                "https://docs.google.com/spreadsheet/pub?key=0AhqMeY8ZOrNKdEFUQ3VaTHVpU29UZ3l4emFQaVZub3c&output=csv";
 
+            var fileDownloader = new global::FileDownloader.Core.FileDownloader();
+            fileDownloader.DownloadFile(remoteUri, pathLocalResource, "Historico.csv");
+
+        }
 
     }
 }

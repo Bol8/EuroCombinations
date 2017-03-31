@@ -29,6 +29,7 @@ namespace EuroCombinations.Manage
         public int NumbCombinationsInfPercent { get; private set; }
         private int Limit;
 
+        public List<List<string>> CombinacionesCoincidentes { get; private set; }
 
         public string Combination { get; private set; }
 
@@ -334,6 +335,36 @@ namespace EuroCombinations.Manage
 
             calcularCombinacion();
         }
+
+        public void obtenerCombinacionPorDistanciaDeNumeros(List<List<string>> combinations, int numero1, int numero2)
+        {
+            CombinacionesCoincidentes = new List<List<string>>();
+
+            foreach (var combination in combinations)
+            {
+                if (recontarNumerosPorDistancia(combination, numero1, numero2))
+                {
+                    NumCombinationsInf++;
+                    CombinacionesCoincidentes.Add(combination);
+                }
+            }
+
+            NumbCombinationsInfPercent = NumCombinationsInf * 100 / combinations.Count;
+        }
+
+
+        private bool recontarNumerosPorDistancia(List<string> combination, int totalNumeros, int distancia )
+        {
+            var correcto = true;
+
+            for (int i = 0; i < totalNumeros - 1 ; i++)
+            {
+                   if((int.Parse(combination[i + 1]) - int.Parse(combination[i]) > distancia )) correcto = false;
+            }
+
+            return correcto;
+        }
+
 
         public void obtenerCombinacionQueEmpiezaEntreDosNumerps(List<List<string>> combinations, int numero1, int numero2)
         {
