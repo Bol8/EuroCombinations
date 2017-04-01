@@ -23,12 +23,5 @@ namespace LoteriaUI
             var frm = new FrmEuromillones(this) { WindowState = FormWindowState.Maximized };
             frm.Show();
         }
-
-      
-        private void configToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmConfiguration();
-            frm.Show();
-        }
     }
 }

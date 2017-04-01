@@ -35,7 +35,10 @@
             this.euromillonesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.primitivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quinielaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.euromillonesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.primitivaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.quinielaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +59,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
-            this.configToolStripMenuItem});
+            this.configuraciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -99,12 +102,34 @@
             this.quinielaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quinielaToolStripMenuItem.Text = "Quiniela";
             // 
-            // configToolStripMenuItem
+            // configuraciónToolStripMenuItem
             // 
-            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.configToolStripMenuItem.Text = "Configuración";
-            this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.euromillonesToolStripMenuItem1,
+            this.primitivaToolStripMenuItem1,
+            this.quinielaToolStripMenuItem1});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // euromillonesToolStripMenuItem1
+            // 
+            this.euromillonesToolStripMenuItem1.Name = "euromillonesToolStripMenuItem1";
+            this.euromillonesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.euromillonesToolStripMenuItem1.Text = "Euromillones";
+            this.euromillonesToolStripMenuItem1.Click += new System.EventHandler(this.euromillonesToolStripMenuItem1_Click);
+            // 
+            // primitivaToolStripMenuItem1
+            // 
+            this.primitivaToolStripMenuItem1.Name = "primitivaToolStripMenuItem1";
+            this.primitivaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.primitivaToolStripMenuItem1.Text = "Primitiva";
+            // 
+            // quinielaToolStripMenuItem1
+            // 
+            this.quinielaToolStripMenuItem1.Name = "quinielaToolStripMenuItem1";
+            this.quinielaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.quinielaToolStripMenuItem1.Text = "Quiniela";
             // 
             // FrmMain
             // 
@@ -133,7 +158,10 @@
         private System.Windows.Forms.ToolStripMenuItem euromillonesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem primitivaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quinielaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem euromillonesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem primitivaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem quinielaToolStripMenuItem1;
     }
 }
 

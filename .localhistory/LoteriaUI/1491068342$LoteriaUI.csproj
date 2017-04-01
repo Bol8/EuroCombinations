@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmConfiguration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConfiguration.Designer.cs">
-      <DependentUpon>FrmConfiguration.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmEuromillones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,9 +60,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmConfiguration.resx">
-      <DependentUpon>FrmConfiguration.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmEuromillones.resx">
       <DependentUpon>FrmEuromillones.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,11 +24,9 @@ namespace LoteriaUI
             frm.Show();
         }
 
-      
-        private void configToolStripMenuItem_Click(object sender, EventArgs e)
+        private void euromillonesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var frm = new FrmConfiguration();
-            frm.Show();
+
         }
     }
 }

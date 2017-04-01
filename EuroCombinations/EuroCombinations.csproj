@@ -37,7 +37,7 @@
       <HintPath>..\..\FileDownoader\FileDownoader\bin\Release\FileDownloader.dll</HintPath>
     </Reference>
     <Reference Include="StringExtensions">
-      <HintPath>..\..\..\..\..\..\..\PROG_LOCAL\StringExtensions\trunk\StringExtensions\bin\Release\StringExtensions.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\PROGLOCAL\recursos\CODIGO.NET\Lib\StringExtensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

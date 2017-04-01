@@ -27,8 +27,7 @@ namespace LoteriaUI
       
         private void configToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FrmConfiguration();
-            frm.Show();
+
         }
     }
 }

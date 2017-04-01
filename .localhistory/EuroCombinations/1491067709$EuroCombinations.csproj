@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE4A70EF-D806-439A-9CE9-D03AE9489439}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{89D1D541-2FEA-4640-8D90-C1D276C1B2E0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoteriaUI</RootNamespace>
-    <AssemblyName>LoteriaUI</AssemblyName>
+    <RootNamespace>EuroCombinations</RootNamespace>
+    <AssemblyName>EuroCombinations</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,66 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileDownloader">
+      <HintPath>..\..\FileDownoader\FileDownoader\bin\Release\FileDownloader.dll</HintPath>
+    </Reference>
+    <Reference Include="StringExtensions">
+      <HintPath>..\..\..\..\..\..\..\PROG_LOCAL\StringExtensions\trunk\StringExtensions\bin\Release\StringExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmConfiguration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConfiguration.Designer.cs">
-      <DependentUpon>FrmConfiguration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEuromillones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEuromillones.Designer.cs">
-      <DependentUpon>FrmEuromillones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Manage\CombinationAnalyze.cs" />
+    <Compile Include="POCO\Combination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmConfiguration.resx">
-      <DependentUpon>FrmConfiguration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEuromillones.resx">
-      <DependentUpon>FrmEuromillones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
