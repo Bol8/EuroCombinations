@@ -48,16 +48,16 @@ namespace LoteriaUI
 
         private void guardarCambiosRutas()
         {
-            //// Open App.Config of executable
-            //System.Configuration.Configuration config =
-            //  ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            // Open App.Config of executable
+            System.Configuration.Configuration config =
+              ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-            //// Add an Application Setting.
-            //config.AppSettings.Settings.Add("Setting3", "3");
-            //// Save the configuration file.
-            //config.Save(ConfigurationSaveMode.Modified, true);
-            //// Force a reload of a changed section.
-            //ConfigurationManager.RefreshSection("appSettings");
+            // Add an Application Setting.
+            config.AppSettings.Settings.Add("Setting3", "3");
+            // Save the configuration file.
+            config.Save(ConfigurationSaveMode.Modified, true);
+            // Force a reload of a changed section.
+            ConfigurationManager.RefreshSection("appSettings");
 
 
 
@@ -72,26 +72,26 @@ namespace LoteriaUI
             //config.Save(ConfigurationSaveMode.Full);
             //ConfigurationManager.RefreshSection("appSettings");
 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
 
 
-            foreach (XmlElement element in xmlDoc.DocumentElement)
-            {
-                if (element.Name.Equals("appSettings"))
-                {
-                    foreach (XmlNode node in element.ChildNodes)
-                    {
-                        if (node.Attributes[0].Value.Equals("RutaRemota"))
-                        {
-                            node.Attributes[1].Value = txtRutaLocal.Text;
-                        }
-                    }
-                }
-            }
+            //foreach (XmlElement element in xmlDoc.DocumentElement)
+            //{
+            //    if (element.Name.Equals("appSettings"))
+            //    {
+            //        foreach (XmlNode node in element.ChildNodes)
+            //        {
+            //            if (node.Attributes[0].Value.Equals("RutaRemota"))
+            //            {
+            //                node.Attributes[1].Value = txtRutaLocal.Text;
+            //            }
+            //        }
+            //    }
+            //}
 
-            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-            ConfigurationManager.RefreshSection("appSettings");
+            //xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            //ConfigurationManager.RefreshSection("appSettings");
 
             // var xmlConfiguration = xmlDoc.ChildNodes[];
             // var xmlAppSettings = xmlConfiguration.OwnerDocument.

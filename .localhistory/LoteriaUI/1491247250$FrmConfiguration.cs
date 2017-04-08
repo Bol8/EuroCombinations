@@ -48,22 +48,6 @@ namespace LoteriaUI
 
         private void guardarCambiosRutas()
         {
-            //// Open App.Config of executable
-            //System.Configuration.Configuration config =
-            //  ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            //// Add an Application Setting.
-            //config.AppSettings.Settings.Add("Setting3", "3");
-            //// Save the configuration file.
-            //config.Save(ConfigurationSaveMode.Modified, true);
-            //// Force a reload of a changed section.
-            //ConfigurationManager.RefreshSection("appSettings");
-
-
-
-
-
-
             //var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             //config.AppSettings.Settings["RutaLocal"].Value = txtRutaLocal.Text;
@@ -82,7 +66,7 @@ namespace LoteriaUI
                 {
                     foreach (XmlNode node in element.ChildNodes)
                     {
-                        if (node.Attributes[0].Value.Equals("RutaRemota"))
+                        if (node.Attributes[0].Value.Equals("RutaLocal"))
                         {
                             node.Attributes[1].Value = txtRutaLocal.Text;
                         }
@@ -90,14 +74,15 @@ namespace LoteriaUI
                 }
             }
 
-            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-            ConfigurationManager.RefreshSection("appSettings");
 
-            // var xmlConfiguration = xmlDoc.ChildNodes[];
-            // var xmlAppSettings = xmlConfiguration.OwnerDocument.
+
+
+           // var xmlConfiguration = xmlDoc.ChildNodes[];
+           // var xmlAppSettings = xmlConfiguration.OwnerDocument.
 
             //ConfigurationManager.AppSettings.Set("RutaLocal",txtRutaLocal.Text);
             //ConfigurationManager.AppSettings.Set("RutaRemota", txtRutaRemota.Text);
+
         }
     }
 }

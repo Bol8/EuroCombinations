@@ -48,22 +48,6 @@ namespace LoteriaUI
 
         private void guardarCambiosRutas()
         {
-            //// Open App.Config of executable
-            //System.Configuration.Configuration config =
-            //  ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            //// Add an Application Setting.
-            //config.AppSettings.Settings.Add("Setting3", "3");
-            //// Save the configuration file.
-            //config.Save(ConfigurationSaveMode.Modified, true);
-            //// Force a reload of a changed section.
-            //ConfigurationManager.RefreshSection("appSettings");
-
-
-
-
-
-
             //var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             //config.AppSettings.Settings["RutaLocal"].Value = txtRutaLocal.Text;

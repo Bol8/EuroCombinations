@@ -170,7 +170,7 @@
             this.btnGuardarRutas.TabIndex = 4;
             this.btnGuardarRutas.Text = "Guardar";
             this.btnGuardarRutas.UseVisualStyleBackColor = true;
-            this.btnGuardarRutas.Click += new System.EventHandler(this.btnGuardarRutas_Click);
+            this.btnGuardarRutas.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmConfiguration
             // 

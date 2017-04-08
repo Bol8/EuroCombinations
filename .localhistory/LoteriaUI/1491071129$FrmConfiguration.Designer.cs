@@ -39,7 +39,7 @@
             this.txtRutaLocal = new System.Windows.Forms.TextBox();
             this.txtRutaRemota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnGuardarRutas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPgEuromillones.SuspendLayout();
@@ -116,7 +116,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnGuardarRutas);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtRutaRemota);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtRutaLocal);
@@ -161,16 +161,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ruta remota:";
             // 
-            // btnGuardarRutas
+            // button1
             // 
-            this.btnGuardarRutas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarRutas.Location = new System.Drawing.Point(703, 101);
-            this.btnGuardarRutas.Name = "btnGuardarRutas";
-            this.btnGuardarRutas.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardarRutas.TabIndex = 4;
-            this.btnGuardarRutas.Text = "Guardar";
-            this.btnGuardarRutas.UseVisualStyleBackColor = true;
-            this.btnGuardarRutas.Click += new System.EventHandler(this.btnGuardarRutas_Click);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(703, 101);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmConfiguration
             // 
@@ -201,7 +201,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnGuardarRutas;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtRutaRemota;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtRutaLocal;
