@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EuroCombinations.Manage;
-using Infrastructure.Tools.Euromillones;
 using FileDownloader = FileDownloader.Core.FileDownloader;
 
 namespace LoteriaUI
@@ -54,26 +52,19 @@ namespace LoteriaUI
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            obtenerListaCombinaciones(cargarFichero());
+            cargarFichero();
         }
 
 
 
-        private string[]  cargarFichero()
+        private void cargarFichero()
         {
             var rutaLocal = ConfigurationManager.AppSettings["RutaLocal"];
             var fullPath = rutaLocal + "Historico.csv";
             var fileDownloader = new global::FileDownloader.Core.FileDownloader();
 
-            return fileDownloader.getFile(fullPath);
-        }
+            var file = fileDownloader.getFile(fullPath);
 
-
-        private void obtenerListaCombinaciones(string[] datos)
-        {
-            var fileDataExtractor = new FileDataExtractor(datos);
-            var combinationManager = new CombinationManager(fileDataExtractor);
-            
         }
     }
 }

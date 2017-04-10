@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroCombinations", "EuroCombinations\EuroCombinations.csproj", "{89D1D541-2FEA-4640-8D90-C1D276C1B2E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoteriaUI", "LoteriaUI\LoteriaUI.csproj", "{FE4A70EF-D806-439A-9CE9-D03AE9489439}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Controllers", "Infrastructure.Tools\Infrastructure.Controllers.csproj", "{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{FE4A70EF-D806-439A-9CE9-D03AE9489439}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE4A70EF-D806-439A-9CE9-D03AE9489439}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE4A70EF-D806-439A-9CE9-D03AE9489439}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,5 +4,6 @@
     {
         public string Number { get; set; }
         public int Repetitions { get; set; }
+
     }
 }

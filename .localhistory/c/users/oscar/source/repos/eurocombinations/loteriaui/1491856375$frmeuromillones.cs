@@ -68,7 +68,6 @@ namespace LoteriaUI
             return fileDownloader.getFile(fullPath);
         }
 
-
         private void obtenerListaCombinaciones(string[] datos)
         {
             var fileDataExtractor = new FileDataExtractor(datos);

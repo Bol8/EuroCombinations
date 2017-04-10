@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89D1D541-2FEA-4640-8D90-C1D276C1B2E0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EuroCombinations</RootNamespace>
-    <AssemblyName>EuroCombinations</AssemblyName>
+    <RootNamespace>Infrastructure.Tools</RootNamespace>
+    <AssemblyName>Infrastructure.Tools</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,13 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FileDownloader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FileDownoader\FileDownoader\bin\Release\FileDownloader.dll</HintPath>
-    </Reference>
-    <Reference Include="StringExtensions">
-      <HintPath>..\..\..\..\..\..\PROGLOCAL\recursos\CODIGO.NET\Lib\StringExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,16 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFileDataExtractor.cs" />
-    <Compile Include="Manage\CombinationAnalyze.cs" />
-    <Compile Include="Manage\CombinationManager.cs" />
-    <Compile Include="POCO\Combination.cs" />
-    <Compile Include="POCO\CombinationEuro.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Euromillones\EuroController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\EuroCombinations\EuroCombinations.csproj">
+      <Project>{89d1d541-2fea-4640-8d90-c1d276c1b2e0}</Project>
+      <Name>EuroCombinations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FileDownloader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="FileDownloader">
       <HintPath>..\..\FileDownoader\FileDownoader\bin\Release\FileDownloader.dll</HintPath>
     </Reference>
     <Reference Include="StringExtensions">
@@ -50,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFileDataExtractor.cs" />
     <Compile Include="Manage\CombinationAnalyze.cs" />
     <Compile Include="Manage\CombinationManager.cs" />
     <Compile Include="POCO\Combination.cs" />

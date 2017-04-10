@@ -104,16 +104,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EuroCombinations\EuroCombinations.csproj">
-      <Project>{89d1d541-2fea-4640-8d90-c1d276c1b2e0}</Project>
-      <Name>EuroCombinations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.Tools\Infrastructure.Controllers.csproj">
-      <Project>{fc70a1d6-a81a-4aef-9778-25b3d35c72bf}</Project>
-      <Name>Infrastructure.Controllers</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
