@@ -37,11 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FileDownoader\FileDownoader\bin\Release\FileDownloader.dll</HintPath>
     </Reference>
-    <Reference Include="Infrastructure.TableUtilities">
-      <HintPath>..\..\..\..\Librerias\Infrastructure.TableUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,7 +90,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -15,5 +15,6 @@ namespace EuroCombinations.Manage
         {
             Combinations = fileDataExtractor.getCombinations();
         }
+        
     }
 }

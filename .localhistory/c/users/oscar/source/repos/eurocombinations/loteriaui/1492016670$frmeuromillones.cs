@@ -12,7 +12,7 @@ using EuroCombinations.Manage;
 using Infrastructure.TableUtilities.Manage;
 using Infrastructure.Tools.Euromillones;
 using LoteriaUI.Models.Euromillones;
-//using FileDownloader = FileDownloader.Core.FileDownloader;
+using FileDownloader = FileDownloader.Core.FileDownloader;
 
 namespace LoteriaUI
 {
@@ -42,15 +42,6 @@ namespace LoteriaUI
         {
             _dtLoader = new DataTableLoader<mEuroCombination>();
             _dtgConfigurator = new DataGridViewConfigurator<mEuroCombination>(dataGridView1,_dtLoader);
-
-            var fileDataExtractor = new FileDataExtractor(cargarFichero());
-            var combinationManager = new CombinationManager(fileDataExtractor);
-            var combinations = combinationManager.Combinations.Select(x => new mEuroCombination(x))
-                                                              .OrderByDescending(x => x.Date)
-                                                              .ToList();
-                
-
-            _dtgConfigurator.addSource(combinations);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -98,7 +89,6 @@ namespace LoteriaUI
         {
             var fileDataExtractor = new FileDataExtractor(datos);
             var combinationManager = new CombinationManager(fileDataExtractor);
-            
             
         }
     }

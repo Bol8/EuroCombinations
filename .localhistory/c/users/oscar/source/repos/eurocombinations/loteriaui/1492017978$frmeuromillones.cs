@@ -12,7 +12,7 @@ using EuroCombinations.Manage;
 using Infrastructure.TableUtilities.Manage;
 using Infrastructure.Tools.Euromillones;
 using LoteriaUI.Models.Euromillones;
-//using FileDownloader = FileDownloader.Core.FileDownloader;
+using FileDownloader = FileDownloader.Core.FileDownloader;
 
 namespace LoteriaUI
 {
