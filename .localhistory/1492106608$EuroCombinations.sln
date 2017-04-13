@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoteriaUI", "LoteriaUI\Lote
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Controllers", "Infrastructure.Tools\Infrastructure.Controllers.csproj", "{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersAnalyzer", "NumbersAnalyzer\NumbersAnalyzer.csproj", "{786FB6DF-5B63-4956-AFBB-1920664FE105}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC70A1D6-A81A-4AEF-9778-25B3D35C72BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{786FB6DF-5B63-4956-AFBB-1920664FE105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{786FB6DF-5B63-4956-AFBB-1920664FE105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{786FB6DF-5B63-4956-AFBB-1920664FE105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{786FB6DF-5B63-4956-AFBB-1920664FE105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

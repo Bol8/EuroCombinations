@@ -20,7 +20,6 @@ namespace LoteriaUI
     {
         private DataTableLoader<mEuroCombination> _dtLoader;
         private DataGridViewConfigurator<mEuroCombination> _dtgConfigurator;
-        private CombinationManager _combinationManager;
 
 
         public FrmEuromillones()
@@ -45,12 +44,12 @@ namespace LoteriaUI
             _dtgConfigurator = new DataGridViewConfigurator<mEuroCombination>(dataGridView1, _dtLoader);
 
             var fileDataExtractor = new FileDataExtractor(cargarFichero());
-            _combinationManager = new CombinationManager(fileDataExtractor);
-            var combinations = _combinationManager.Combinations.Select(x => new mEuroCombination(x))
+            var combinationManager = new CombinationManager(fileDataExtractor);
+            var combinations = combinationManager.Combinations.Select(x => new mEuroCombination(x))
                                                               .OrderByDescending(x => x.Date)
                                                               .ToList();
 
-            lblNumCombinaciones.Text = _combinationManager.Combinations.Count.ToString();
+            lblNumCombinaciones.Text = combinationManager.Combinations.Count.ToString();
             _dtgConfigurator.addSource(combinations);
         }
 
@@ -99,11 +98,8 @@ namespace LoteriaUI
         {
             var fileDataExtractor = new FileDataExtractor(datos);
             var combinationManager = new CombinationManager(fileDataExtractor);
-        }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            var patterns = _combinationManager.getPatterns();
+
         }
     }
 }

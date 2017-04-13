@@ -55,7 +55,6 @@
     <Compile Include="Manage\CombinationManager.cs" />
     <Compile Include="POCO\Combination.cs" />
     <Compile Include="POCO\CombinationEuro.cs" />
-    <Compile Include="POCO\EuroPattern.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

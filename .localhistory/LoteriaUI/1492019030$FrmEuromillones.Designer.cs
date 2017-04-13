@@ -37,8 +37,6 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblNumCombinaciones = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -102,9 +100,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
-            this.lblNumCombinaciones,
-            this.toolStripButton3});
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1022, 30);
@@ -142,21 +138,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1018, 471);
             this.dataGridView1.TabIndex = 1;
             // 
-            // lblNumCombinaciones
-            // 
-            this.lblNumCombinaciones.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.lblNumCombinaciones.Name = "lblNumCombinaciones";
-            this.lblNumCombinaciones.Size = new System.Drawing.Size(0, 27);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(77, 27);
-            this.toolStripButton3.Text = "Patrones";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
             // FrmEuromillones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +169,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripLabel lblNumCombinaciones;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }

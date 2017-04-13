@@ -99,6 +99,8 @@ namespace LoteriaUI
         {
             var fileDataExtractor = new FileDataExtractor(datos);
             var combinationManager = new CombinationManager(fileDataExtractor);
+
+
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

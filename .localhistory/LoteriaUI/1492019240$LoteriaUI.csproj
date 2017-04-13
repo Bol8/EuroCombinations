@@ -67,12 +67,6 @@
     <Compile Include="FrmEuromillones.Designer.cs">
       <DependentUpon>FrmEuromillones.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEuroPatterns.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEuroPatterns.Designer.cs">
-      <DependentUpon>FrmEuroPatterns.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +81,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEuromillones.resx">
       <DependentUpon>FrmEuromillones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEuroPatterns.resx">
-      <DependentUpon>FrmEuroPatterns.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
