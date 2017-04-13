@@ -34,6 +34,7 @@ namespace EuroCombinations.Manage
             return patterns;
         }
 
+
         private EuroPattern extractPattern(CombinationEuro combination)
         {
             var patternFormat = "{0},{1},{2},{3},{4}";
@@ -56,6 +57,7 @@ namespace EuroCombinations.Manage
             
             return pattern;
         }
+
 
     }
 }

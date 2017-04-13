@@ -12,9 +12,6 @@ using EuroCombinations.Manage;
 using Infrastructure.TableUtilities.Manage;
 using Infrastructure.Tools.Euromillones;
 using LoteriaUI.Models.Euromillones;
-using LoteriaUI.Tools;
-using NumbersAnalyzer.Models;
-
 //using FileDownloader = FileDownloader.Core.FileDownloader;
 
 namespace LoteriaUI
@@ -111,26 +108,7 @@ namespace LoteriaUI
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            var numbers = _combinationManager.Combinations.Select(x => x.Number4).ToList();
 
-            var section1 = new Section() { From = 1, To = 10, Name = "Seccion1" };
-            var section2 = new Section() { From = 10, To = 20, Name = "Seccion2" };
-            var section3 = new Section() { From = 20, To = 30, Name = "Seccion3" };
-            var section4 = new Section() { From = 30, To = 40, Name = "Seccion4" };
-            var section5 = new Section() { From = 40, To = 51, Name = "Seccion5" };
-
-            var sections = new Sections();
-            sections.Add(section1);
-            sections.Add(section2);
-            sections.Add(section3);
-            sections.Add(section4);
-            sections.Add(section5);
-
-            var dataProvider = new DataProvider(numbers,sections);
-
-            var numbersAnalyzer = new NumbersAnalyzer.Analitics.NumbersAnalyzer();
-            numbersAnalyzer.AnalyzeNumbers(dataProvider);
-            
         }
     }
 }

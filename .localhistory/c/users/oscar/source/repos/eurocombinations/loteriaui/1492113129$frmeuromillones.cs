@@ -111,7 +111,7 @@ namespace LoteriaUI
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            var numbers = _combinationManager.Combinations.Select(x => x.Number4).ToList();
+            var numbers = _combinationManager.Combinations.Select(x => x.Number2).ToList();
 
             var section1 = new Section() { From = 1, To = 10, Name = "Seccion1" };
             var section2 = new Section() { From = 10, To = 20, Name = "Seccion2" };
